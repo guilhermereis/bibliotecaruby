@@ -1,0 +1,5 @@
+<h2>Sobre<h2>
+
+
+<%= link_to 'Edit', edit_sobre_path(@sobre) %> |
+<%= link_to 'Back', sobres_path %>

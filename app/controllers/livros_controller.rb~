@@ -1,0 +1,7 @@
+class LivrosController < ApplicationController
+  def create
+    @pessoa = Pessoa.find(params[:post_id])
+    @livro = @pessoa.livros.create(params[:comment])
+    redirect_to pessoa_path(@pessoa)
+  end	
+end

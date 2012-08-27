@@ -1,0 +1,29 @@
+<h1>Lista de pessoas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Cpf</th>
+    <th>Telefone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pessoas.each do |pessoa| %>
+  <tr>
+    <td><%= pessoa.nome %></td>
+    <td><%= pessoa.cpf %></td>
+    <td><%= pessoa.telefone %></td>
+    <td><%= link_to 'Show', pessoa %></td>
+    <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
+    <td><%= link_to 'Destroy', pessoa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to 'New Pessoa', new_pessoa_path %>
+<br /><br />
+<p> Clique em "Show" para exibir ou adicionar livros para cada pessoa</p>
+

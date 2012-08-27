@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @pessoa.nome %>
+</p>
+
+<p>
+  <b>Cpf:</b>
+  <%= @pessoa.cpf %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @pessoa.telefone %>
+</p>
+
+<h2>Livros</h2>
+<% @pessoa.livros.each do |livro| %>
+  <p>
+    <b>Titulo:</b>
+    <%= livro.titulo %>
+  </p>
+  <p>
+    <b>Autor:</b>
+    <%= livro.autor %>
+  </p>
+  <p>
+    <b>Descricao:</b>
+    <%= livro.descricao %>
+  </p>
+<% end %>
+
+
+
+<h2>Adicione um livro:</h2>
+<%= form_for([@pessoa, @pessoa.livros.build]) do |f| %>
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :autor %><br />
+    <%= f.text_field :autor %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_pessoa_path(@pessoa) %> |
+<%= link_to 'Back', pessoas_path %>
